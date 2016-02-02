@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/albertoheras/Google Drive/Spring 2016/ECE435/HuffmanEncoding/huffman_alberto_heras/src/main.cpp
+iostream
+-
+
