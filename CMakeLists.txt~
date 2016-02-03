@@ -1,3 +1,0 @@
-project(huffmanEncoding)
-cmake_minimum_required( 2.8 )
-add_subdirectory( src )
