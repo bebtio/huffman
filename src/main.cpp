@@ -1,5 +1,6 @@
 #include <iostream>
 #include "huffmanencoder.h"
+
 int main(int argc, char **argv)
 {
 	HuffmanEncoder* huff = new HuffmanEncoder();
@@ -13,18 +14,6 @@ int main(int argc, char **argv)
 	{
 		huff->fileReader(argv[1]);
 	}
-	huff->addChar("a");
-	huff->addChar("c");
-	huff->addChar("z");
-	huff->addChar("z");
-	huff->addChar("c");
-	huff->addChar("c");
-	huff->addChar("d");
-	huff->addChar("d");
-	huff->addChar("1");
-	huff->addChar("1");
-	huff->addChar("1");
-	huff->addChar("1");
 
 	std::cout << "Before Sort" << std::endl;
 	huff->printVector();

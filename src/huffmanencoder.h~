@@ -30,7 +30,7 @@ public:
 	// the larger value is seemingly on the wrong side.
 	static bool sortByFrequency(const std::pair<std::string,int> smaller, const std::pair<std::string, int> larger)
 	{
-		return(smaller.second < larger.second);
+		return(smaller.second > larger.second);
 	}
 
 	void fileReader(std::string filename);

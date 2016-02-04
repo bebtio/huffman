@@ -1,24 +1,28 @@
 #include "huffmanencoder.h"
-/****************************************************************/
+
+/********************************************************************************************/
+
 HuffmanEncoder::HuffmanEncoder()
 {
+    this->sumOfChars = 0;
 }
 
-/****************************************************************/
+/********************************************************************************************/
+
 
 HuffmanEncoder::~HuffmanEncoder()
 {
 
 }
 
-/****************************************************************/
+/********************************************************************************************/
+
 
 // This function looks at the current character being read.  If it does not exist, add
 // it to the vector and make its integer value equal to one.
 // If it is already present in the vector increment its integer value.
 void HuffmanEncoder::addChar(std::string in)
 {
-
 	bool success = true;
 	if (this->charCount.empty() == true)
 	{
@@ -31,6 +35,7 @@ void HuffmanEncoder::addChar(std::string in)
 			if (in == this->charCount.at(i).first)
 			{
 				this->charCount.at(i).second += 1;
+                this->sumOfChars++;
 				success = true;
 				break;
 			}
@@ -44,22 +49,21 @@ void HuffmanEncoder::addChar(std::string in)
 		if (success == false)
 		{
 			this->charCount.push_back(std::make_pair(in, 1));
+            this->sumOfChars++;
 		}
 	}
-				
-				
-	
-				
 }
 
-/****************************************************************/
+/********************************************************************************************/
+
 
 void HuffmanEncoder::sortVector()
 {
 	std::sort(this->charCount.begin(), this->charCount.end(), sortByFrequency);
 }
 
-/****************************************************************/
+/********************************************************************************************/
+
 
 void HuffmanEncoder::printVector()
 {
@@ -67,7 +71,11 @@ void HuffmanEncoder::printVector()
 	{
 		std::cout << this->charCount.at(i).first << " " << this->charCount.at(i).second << std::endl;
 	}
+    
+    std::cout << this->getSumOfChars() << std::endl;
 }
+
+/********************************************************************************************/
 
 void HuffmanEncoder::fileReader(std::string filename)
 {
@@ -91,4 +99,19 @@ void HuffmanEncoder::fileReader(std::string filename)
 			}
 		}
 	}
+}
+
+/********************************************************************************************/
+
+
+int HuffmanEncoder::getSumOfChars()
+{
+    return(this->sumOfChars);
+}
+
+/********************************************************************************************/
+
+int HuffmanEncoder::getSumOfPairsOfChairs(int x, int y)
+{
+    return(x + y);
 }
