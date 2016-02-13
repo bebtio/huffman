@@ -10,13 +10,47 @@ HuffmanEncoder::HuffmanEncoder()
 /********************************************************************************************/
 
 
+
+/********************************************************************************************/
+
+
 HuffmanEncoder::~HuffmanEncoder()
 {
 
 }
 
+
 /********************************************************************************************/
 
+bool HuffmanEncoder::fileReader(std::string filename)
+{
+    bool fileOpened = true;
+    std::fstream inputFileStream;
+    std::string tempString;
+    std::string tempChar;
+    inputFileStream.open(filename.c_str());
+    
+    if(!inputFileStream.is_open())
+    {
+        std::cout << filename << " could not be opened" << std::endl;
+        fileOpened = false;
+    }
+    else
+    {
+        while (getline(inputFileStream, tempString))
+        {
+            for (int i = 0; i < tempString.size();i++)
+            {
+                tempChar = tempString.at(i);
+                addChar(tempChar);
+            }
+        }
+    }
+    
+    return(fileOpened);
+}
+
+/********************************************************************************************/
 
 // This function looks at the current character being read.  If it does not exist, add
 // it to the vector and make its integer value equal to one.
@@ -52,6 +86,8 @@ void HuffmanEncoder::addChar(std::string in)
             this->sumOfChars++;
 		}
 	}
+    
+    this->sortVector();
 }
 
 /********************************************************************************************/
@@ -75,31 +111,7 @@ void HuffmanEncoder::printVector()
     std::cout << this->getSumOfChars() << std::endl;
 }
 
-/********************************************************************************************/
 
-void HuffmanEncoder::fileReader(std::string filename)
-{
-	std::fstream inputFileStream;
-	std::string tempString;
-	std::string tempChar;
-	inputFileStream.open(filename.c_str());
-
-	if(!inputFileStream.is_open())
-	{
-		std::cout << filename << " could not be opened" << std::endl;
-	}
-	else
-	{
-		while (getline(inputFileStream, tempString))
-		{
-			for (int i = 0; i < tempString.size();i++)
-			{
-				tempChar = tempString.at(i);
-				addChar(tempChar);
-			}
-		}
-	}
-}
 
 /********************************************************************************************/
 
@@ -113,5 +125,16 @@ int HuffmanEncoder::getSumOfChars()
 
 int HuffmanEncoder::getSumOfPairsOfChairs(int x, int y)
 {
-    return(x + y);
+    int z = x + y;
+    return(z);
 }
+
+void HuffmanEncoder::createTree()
+{
+    this->tree.createLeafNodes(this->charCount);
+}
+
+
+
+
+

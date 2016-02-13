@@ -3,6 +3,7 @@
 
 int main(int argc, char **argv)
 {
+    
 	HuffmanEncoder* huff = new HuffmanEncoder();
 
 	if (argc != 2)
@@ -12,15 +13,15 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-		huff->fileReader(argv[1]);
+		if(huff->fileReader(argv[1]))
+        {
+            huff->printVector();
+            huff->createTree();
+            huff->getTree().printHuffmanTree();
+        }
 	}
+    
 
-	std::cout << "Before Sort" << std::endl;
-	huff->printVector();
-
-	huff->sortVector();
-
-	std::cout << "After Sort" << std::endl;
-	huff->printVector();
   return(0);
+    
 }

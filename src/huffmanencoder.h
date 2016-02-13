@@ -7,6 +7,9 @@
 #include <map>
 #include <algorithm>
 #include <fstream>
+#include <queue>
+#include "leafnode.h"
+#include "huffmantree.h"
 
 class HuffmanEncoder
 {
@@ -33,10 +36,19 @@ public:
 		return(smaller.second < larger.second);
 	}
 
-	void fileReader(std::string filename);
+	bool fileReader(std::string filename);
+    void createTree();
+    huffmantree getTree() { return(this->tree);}
+
 private:
+    
     int sumOfChars;
 	std::vector<std::pair< std::string, int> > charCount;
+    huffmantree tree;
+    
+
 };
+
+
 
 #endif // HUFFMANENCODER_H
