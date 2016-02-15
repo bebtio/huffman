@@ -13,8 +13,8 @@
 #include <string>
 #include <iostream>
 
-#define LEFT_NODE 0
-#define RIGHT_NODE 1
+#define LEFT_NODE true
+#define RIGHT_NODE false
 class leafnode
 {
 public:
@@ -37,7 +37,7 @@ public:
     
     
 private:
-    
+
     std::string encoding_symbol;
     std::string encoding;
     std::string symbol;
