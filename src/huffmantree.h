@@ -13,6 +13,16 @@
 #include "leafnode.h"
 #include <vector>
 #include <queue>
+
+class Compare
+{
+public:
+    bool operator() (leafnode* a,leafnode* b)
+    {
+        return(a->getWeight() > b->getWeight());
+    }
+};
+
 class huffmantree
 {
 public:
@@ -27,6 +37,8 @@ public:
     void addLeafNode(leafnode* leaf) { this->leaves.push_back(leaf); }
     void printEncodings();
     
+    std::string getEncoding(char letter);
+    
     
 private:
     
@@ -35,8 +47,10 @@ private:
     void generateEncodings();
     
     std::vector<leafnode*> leaves;
-    std::priority_queue<leafnode*,std::vector<leafnode*>, std::greater<leafnode*> >tree;
+    std::priority_queue<leafnode*,std::vector<leafnode*>, Compare >tree;
 };
+
+
 
 #endif /* huffmantree_h */
 

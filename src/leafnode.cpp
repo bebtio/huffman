@@ -79,4 +79,6 @@ void leafnode::createEncodingSymbol()
 
         this->encoding.append(tempNode->encoding);
     }
+    
+    std::reverse(this->encoding.begin(), this->encoding.end());
 }

@@ -37,11 +37,14 @@ public:
 	}
 
 	bool fileReader(std::string filename);
+    void printEncodedFile();
+    void printOriginalFile();
     void createTree();
     huffmantree getTree() { return(this->tree);}
 
 private:
     
+    std::vector<std::string> theFileStrings;
     int sumOfChars;
 	std::vector<std::pair< std::string, int> > charCount;
     huffmantree tree;

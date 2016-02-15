@@ -9,7 +9,7 @@
 
 
 #include "huffmantree.h"
-
+#include <sstream>
 huffmantree::huffmantree(std::vector<std::pair<std::string, int > > input)
 {
     this->createLeafNodes(input);
@@ -60,11 +60,7 @@ void huffmantree::createHuffmanTree()
         
         leafnode* i = new leafnode(l,r);
         
-        std::cout << i->getSymbol() << " " << i->getWeight() << std::endl;
         tree.push(i);
-        
-        this->printLeafNodes();
-        
     }
 }
 
@@ -72,10 +68,12 @@ void huffmantree::createHuffmanTree()
 
 void huffmantree::printHuffmanTree()
 {
+    std::cout << "Letter\t" << "Weight\t" << "Encoding\t" << std::endl;
     for(int i = 0; i < this->leaves.size(); i++)
     {
-        leaves.at(i)->printLeaf();
-        std::cout << leaves.at(i)->getEncoding() << " " << leaves.at(i)->getEncodingSymbol() <<std::endl << std::endl;;
+        std::cout << leaves.at(i)->getSymbol() << "\t\t";
+        std::cout << leaves.at(i)->getWeight() << "\t\t";
+        std::cout << leaves.at(i)->getEncoding() << "\t\t" << std::endl;;
     }
 }
 
@@ -89,10 +87,20 @@ void huffmantree::generateEncodings()
     }
 }
 
-void huffmantree::printLeafNodes()
+/********************************************************************************************/
+
+std::string huffmantree::getEncoding(char letter)
 {
-    for(int i = 0; i < this->leaves.size(); i++)
+    for(int i =  0; i < this->leaves.size(); i++)
     {
-    
+        std::string in = this->leaves.at(i)->getSymbol();
+        std::stringstream ss;
+        ss << letter;
+        if(ss.str() == in)
+        {
+            return(this->leaves.at(i)->getEncoding());
+        }
     }
+    
+    return("FAIL");
 }

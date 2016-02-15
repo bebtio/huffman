@@ -39,6 +39,7 @@ bool HuffmanEncoder::fileReader(std::string filename)
     {
         while (getline(inputFileStream, tempString))
         {
+            theFileStrings.push_back(tempString);
             for (int i = 0; i < tempString.size();i++)
             {
                 tempChar = tempString.at(i);
@@ -129,11 +130,40 @@ int HuffmanEncoder::getSumOfPairsOfChairs(int x, int y)
     return(z);
 }
 
+/********************************************************************************************/
+
 void HuffmanEncoder::createTree()
 {
     this->tree.createLeafNodes(this->charCount);
 }
 
+/********************************************************************************************/
+
+void HuffmanEncoder::printEncodedFile()
+{
+    std::cout << std::endl << "The Encoded File:" << std::endl << std::endl;
+    for(int i = 0; i < theFileStrings.size(); i++)
+    {
+        for(int j = 0; j < theFileStrings.at(i).size(); j++)
+        {
+            std::cout << this->tree.getEncoding(this->theFileStrings.at(i).at(j));
+        }
+    }
+}
+
+/********************************************************************************************/
+
+void HuffmanEncoder::printOriginalFile()
+{
+    std::cout << std::endl << "The Original File:" << std::endl << std::endl;
+
+    for(int i = 0; i < theFileStrings.size(); i++)
+    {
+        std::cout << theFileStrings.at(i);
+    }
+}
+
+/********************************************************************************************/
 
 
 

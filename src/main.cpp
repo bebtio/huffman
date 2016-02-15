@@ -15,9 +15,12 @@ int main(int argc, char **argv)
 	{
 		if(huff->fileReader(argv[1]))
         {
-            huff->printVector();
             huff->createTree();
             huff->getTree().printHuffmanTree();
+            
+            huff->printEncodedFile();
+            std::cout << std::endl;
+            huff->printOriginalFile();
         }
 	}
     
