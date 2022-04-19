@@ -141,7 +141,7 @@ void HuffmanEncoder::createTree()
 
 void HuffmanEncoder::printEncodedFile()
 {
-    std::cout << std::endl << "The Encoded File:" << std::endl << std::endl;
+    std::cout << "The Encoded File:" << std::endl << std::endl;
     for(int i = 0; i < theFileStrings.size(); i++)
     {
         for(int j = 0; j < theFileStrings.at(i).size(); j++)
@@ -149,18 +149,22 @@ void HuffmanEncoder::printEncodedFile()
             std::cout << this->tree.getEncoding(this->theFileStrings.at(i).at(j));
         }
     }
+
+    std::cout << std::endl;
 }
 
 /********************************************************************************************/
 
 void HuffmanEncoder::printOriginalFile()
 {
-    std::cout << std::endl << "The Original File:" << std::endl << std::endl;
+    std::cout << "The Original File:" << std::endl << std::endl;
 
     for(int i = 0; i < theFileStrings.size(); i++)
     {
         std::cout << theFileStrings.at(i);
     }
+
+    std::cout << std::endl;
 }
 
 /********************************************************************************************/

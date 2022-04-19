@@ -73,8 +73,10 @@ void huffmantree::printHuffmanTree()
     {
         std::cout << leaves.at(i)->getSymbol() << "\t\t";
         std::cout << leaves.at(i)->getWeight() << "\t\t";
-        std::cout << leaves.at(i)->getEncoding() << "\t\t" << std::endl;;
+        std::cout << leaves.at(i)->getEncoding() << "\t\t" << std::endl;
     }
+
+    std::cout << std::endl;
 }
 
 /********************************************************************************************/

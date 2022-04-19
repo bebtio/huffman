@@ -24,7 +24,8 @@ int main(int argc, char **argv)
         }
 	}
     
+	delete huff;
 
-  return(0);
+  	return(0);
     
 }

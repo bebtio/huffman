@@ -67,7 +67,7 @@ leafnode::~leafnode()
 
 void leafnode::printLeaf()
 {
-    std::cout << "The letters: "<<this->symbol << " Wieght: " << this->weight << std::endl;
+    std::cout << "The letters: "<<this->symbol << " Weight: " << this->weight << std::endl;
 }
 
 /*************************************************************************************/
@@ -86,5 +86,6 @@ void leafnode::createEncodingSymbol()
         std::cout << this->encoding << std::endl;
     }
     
+    std::cout << std::endl;
     std::reverse(this->encoding.begin(), this->encoding.end());
 }
