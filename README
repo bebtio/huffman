@@ -1,0 +1,10 @@
+Author: Alberto Heras
+Date: 18 April 2022
+
+To build this project do:
+
+mkdir build
+cd build
+cmake .. && make
+
+Executable will be  build/src/huffman
